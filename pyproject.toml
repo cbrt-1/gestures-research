@@ -1,0 +1,6 @@
+[project]
+name = "gestures-research"
+version = "0.1.0"
+description = "Adding Gesture modality to multi-modal llms."
+requires-python = ">=3.12"
+dependencies = []
