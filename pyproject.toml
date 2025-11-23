@@ -3,4 +3,15 @@ name = "gestures-research"
 version = "0.1.0"
 description = "Adding Gesture modality to multi-modal llms."
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "matplotlib>=3.10.7",
+    "mediapipe>=0.10.21",
+    "torch>=2.9.0",
+    "torchaudio>=2.9.0",
+    "torchvision>=0.24.0",
+    "tqdm>=4.67.1",
+]
+
+[tool.setuptools]
+packages = ["gesture_research"]
+package-dir = {"" = "src"}
