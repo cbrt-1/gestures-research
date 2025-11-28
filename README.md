@@ -28,7 +28,7 @@ To start training, run:
 uv run src/train_model.py
 ```
 It should load all the files from the data/processed folder and train off of it.
-Some tuning of hyperparameters might be needed, or modifying the training script (such as adding some jitter).
+Some tuning of hyperparameters might be needed, or modifying the training script (such as adding some jitter/random rotations).
 The vq-vae model might also need to be changed if it turns out not large enough or too large leading to overfit. The file can be found in `src/model/vqvae.py`.
 A large perplexity score (% of code book being used) is good.
 Resetting dead vectors is also good.
