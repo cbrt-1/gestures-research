@@ -113,7 +113,7 @@ def producer(task_queue, video_files):
 
 def main():
     workspace_dir = Path(os.getcwd())
-    video_dir = workspace_dir / "data" / "wlasl" / "videos"
+    video_dir = workspace_dir / "data" / "raw" / "wlasl_raw" / "videos"
     output_dir = workspace_dir / "data" / "processed" / "wlasl_landmarks_138"
     
     output_dir.mkdir(exist_ok=True, parents=True)

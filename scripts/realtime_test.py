@@ -79,7 +79,6 @@ def run_visualization():
                     connection_drawing_spec=mp_drawing.DrawingSpec(color=GREEN_COLOR, thickness=2)
                 )
 
-        # Calculate Shared Space Normalization
         # We center based on the midpoint of whatever hands are visible
         midpoint = np.zeros(3)
         if 'left' in unnormalized_landmarks and 'right' in unnormalized_landmarks:
@@ -104,7 +103,7 @@ def run_visualization():
                 for hand_label, centered_pose in temp_poses.items():
                     normalized_poses[hand_label] = centered_pose / max_dist
 
-        # Update derivatives (Motion streams)
+        # Calculate velocity and accelerations
         for hand_label in ['left', 'right']:
             if hand_label in unnormalized_landmarks:
                 wrist_pos = unnormalized_landmarks[hand_label][0]
@@ -118,7 +117,6 @@ def run_visualization():
             else:
                 history_buffers[hand_label].clear()
 
-        # Visualize
         # Draw normalized skeletons with offsets to center them side-by-side
         draw_normalized_skeleton(frame, normalized_poses['left'], RED_COLOR, offset_x=-VIS_SCALE/2)
         draw_normalized_skeleton(frame, normalized_poses['right'], RED_COLOR, offset_x=VIS_SCALE/2)
