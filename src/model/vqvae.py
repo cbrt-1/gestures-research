@@ -50,7 +50,7 @@ class VectorQuantizer(nn.Module):
         if num_dead > 0:
             flat_outputs = encoder_outputs.view(-1, self._embedding_dim)
             indices = torch.randint(0, len(flat_outputs), (num_dead,))
-            self._embedding.weight.data[dead_mask] = flat_outputs[indices]
+            self._embedding.weight.data[dead_mask] = flat_outputs[indices].to(self._embedding.weight.dtype)
             print(f"Reset {num_dead} dead codebook vectors")
             self._code_usage.zero_()
 
